@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "ArchiveRegular";
+    src: url("Archive-Regular.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+} 
+
+a{
+    text-decoration:none;
+}
+header {
+    background-color: #242f3d;
+    display: flex;
+
+    align-items: flex-start;
+    position: fixed;
+    min-width: 100%;
+    top: 0;
+    z-index: 1000000;
+}
+.content{
+    margin:0 auto;
+    margin-top:7vh;
+
+}
+.Logo{
+    margin-left:20vw;
+    font-size:24px;
+    letter-spacing:0.1em;
+}
+.Logo1 {
+    color: white;
+    font-family: 'Century Gothic';
+    font-style:normal;
+    font-weight:normal;
+    line-height:29px;
+    letter-spacing:0.1em;
+}
+.Logo2 {
+    font-family: 'ArchiveRegular';
+    font-weight: 800;
+    color: #08aeb4;
+    margin-left: -0.1em;
+}

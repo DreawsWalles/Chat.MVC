@@ -1,0 +1,148 @@
+﻿@model Buisness.Interop.RegisterModel;
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LayoutNotLog.cshtml";
+}
+<style>
+    .content{
+        margin-top:4vh;
+        height:95vh;
+        display: flex;
+        align-items: center;   
+        flex-direction:column;
+    }
+    .form{
+        margin:2vw auto 4vw;
+        margin-top:3vh;
+        width:500px;
+    }
+    .label-title{
+        font-family: 'Century Gothic';
+        font-size:20px;
+    }
+    .form-group{
+        position: relative;
+        margin-bottom:25px;
+    }
+    .form-group input:focus{
+        outline: 0;
+        outline-offset: 0;
+    }
+    .form-group input{
+         border-radius: 10px;
+         border:#08aeb4 1px solid;
+         height:3em;
+    }
+    .label-title{
+       position: absolute;
+       background: white;
+       padding: 1px;
+       left: 15px;
+       top: -20px;
+       color:#08aeb4;
+    }
+    img{
+        margin:2vw auto 1vw;
+        display:block;
+    }
+    .error-input{
+        color:red;
+        font-size:16px;
+        display:block;
+        margin-left:20px;
+    }
+    .btn-in{
+        display:block;
+        color:#08aeb4;
+        border:#08aeb4 1px solid;
+        height:3em;
+        border-radius: 10px;
+        font-size:18px;
+        flex-grow:6;
+        margin-right:40px;
+    }
+    .btn-in:hover{
+        background-color:#08aeb4;
+        border:#08aeb4 1px solid;
+    }
+    .button{
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+    }
+    .error-button{
+        display:block;
+        color:red;
+
+    }
+    .btn-reg{
+        padding-top:13px;
+        flex-grow:1;
+        border-radius: 10px;
+        font-size:18px;
+        display:block;
+    }
+    .error{
+        margin-top:10px;
+        display:flex;
+        justify-content:center;
+        font-size:18px;
+    }
+</style>
+<div class="content">
+    <img class="image" src="~/image/Avatar.png" />
+    <h1>Регистрация в Chat.NET</h1>
+    <div class="form">
+        <form id="form-reg" method="post" asp-action="Register" asp-controller="Account">
+            <div class="form-group">
+                <label class="label-title" asp-for="UserName">Логин</label>
+                <input asp-for="UserName" type="text" class="form-control" id="Login" placeholder="Ваш логин..." />
+                <span class="error-input" asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="Email">Email</label>
+                <input asp-for="Email" type="email" class="form-control" id="Email" placeholder="Ваш Email..." />
+                <span class="error-input" asp-validation-for="Email"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="PhoneNumber">Номер телефона</label>
+                <input asp-for="PhoneNumber" type="tel" class="form-control" id="PhoneNumber" placeholder="Ваш номер телефона..." />
+                <span class="error-input" asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="Name">Имя</label>
+                <input asp-for="Name" type="text" class="form-control" id="Name" placeholder="Ваше имя..." />
+                <span class="error-input" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="Sername">Фамилия</label>
+                <input asp-for="Sername" type="text" class="form-control" id="Sername" placeholder="Ваша фамилия..." />
+                <span class="error-input" asp-validation-for="Sername"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="Patronymic">Отчество</label>
+                <input asp-for="Patronymic" type="text" class="form-control" id="Patronymic" placeholder="Ваше отчество..." />
+                <span class="error-input" asp-validation-for="Patronymic"></span>
+            </div>
+            <div class="form-group password">
+                <label class="label-title" asp-for="Password">Пароль</label>
+                <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Ваш пароль..." />
+                <span class="error-input" asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group password">
+                <label class="label-title" asp-for="ConfirmPassword">Подтверждение пароля</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" id="ConfirmPassword" placeholder="Подтверждение пароля..." />
+                <span class="error-input" asp-validation-for="ConfirmPassword"></span>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-in btn-outline-success">Зарегистрироваться</button>
+                <a asp-action="Login" class="btn btn-reg btn-outline-secondary">Уже есть аккаунт</a>
+            </div>
+            <div class="error">
+                <span class="error-button" asp-validation-for="Error"></span>
+            </div>
+        </form>
+
+    </div>   
+</div>
+

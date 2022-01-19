@@ -1,0 +1,108 @@
+﻿@model Buisness.Interop.LoginModel;
+@{
+    ViewData["Title"] = "Authenticate";
+    Layout = "~/Views/Shared/_LayoutNotLog.cshtml";
+}
+<style>
+    .content{
+        margin-top:20vh;
+        height:85vh;
+        display: flex;
+        align-items: center;   
+        flex-direction:column;
+    }
+    .form{
+        margin:2vw auto 4vw;
+        margin-top:3vh;
+        width:500px;
+    }
+    .label-title{
+        font-family: 'Century Gothic';
+        font-size:20px;
+    }
+    .form-group{
+        position: relative;
+        margin-bottom:25px;
+    }
+    .form-group input:focus{
+        outline: 0;
+        outline-offset: 0;
+    }
+    .form-group input{
+         border-radius: 10px;
+         border:#08aeb4 1px solid;
+         height:3em;
+    }
+    .label-title{
+       position: absolute;
+       background: white;
+       padding: 1px;
+       left: 15px;
+       top: -20px;
+       color:#08aeb4;
+    }
+    img{
+        margin:2vw auto 1vw;
+        display:block;
+    }
+    .error-input{
+        color:red;
+        font-size:16px;
+        display:block;
+        margin-left:20px;
+    }
+    .btn-in{
+        display:block;
+        color:#08aeb4;
+        border:#08aeb4 1px solid;
+        height:3em;
+        border-radius: 10px;
+        font-size:18px;
+        flex-grow:6;
+        margin-right:40px;
+    }
+    .btn-in:hover{
+        background-color:#08aeb4;
+        border:#08aeb4 1px solid;
+    }
+    .button{
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+    }
+    .error-button{
+        display:block;
+        color:red;
+    }
+    .btn-reg{
+        padding-top:13px;
+        flex-grow:1;
+        border-radius: 10px;
+        font-size:18px;
+        display:block;
+    }
+</style>
+<div class="content">
+    <img class="image" src="~/image/Avatar.png" />
+    <h1>Авторизация в Chat.NET</h1>
+    <div class="form">
+        <form method="post" asp-action="Login" asp-controller="Account">
+            <div class="form-group">
+                <label class="label-title" asp-for="Login">Логин или номер телефона</label>
+                <input asp-for="Login" type="text" class="form-control" id="Login" placeholder="Ваш логин или номер телефона..." />
+                <span class="error-input" asp-validation-for="Login"></span>
+            </div>
+            <div class="form-group">
+                <label class="label-title" asp-for="Password">Пароль</label>
+                <input asp-for="Password" type="password" class="form-control" id="Password" placeholder="Ваш пароль..." />
+                <span class="error-input" asp-validation-for="Password"></span>
+                <span class="error-button" asp-validation-for="Error"></span>
+            </div>
+             <div class="button">
+                <button type="submit" class="btn btn-in btn-outline-success">Войти</button>
+                <a asp-action="Register" class="btn btn-reg btn-outline-secondary">Регистрация</a>
+            </div>
+        </form>
+     </div>   
+</div>
+
